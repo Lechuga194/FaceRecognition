@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+  background-color: #5a5e62;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
