@@ -23,6 +23,11 @@
   margin-bottom: 1em;
 }
 
+.error {
+  color: red;
+  text-transform: capitalize;
+}
+
 /* PARA LAS CARTAS DE SIGNIN Y LOGOUT */
 
 article {

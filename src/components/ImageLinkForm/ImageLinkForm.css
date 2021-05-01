@@ -2,3 +2,11 @@
   width: 700px;
   background-color: #a2d2ff;
 }
+
+.welcome-message {
+  color: rgb(228, 224, 224);
+}
+
+.btnsubmitcolor {
+  background-color: #ffc58c;
+}
