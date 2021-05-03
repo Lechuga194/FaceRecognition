@@ -1,8 +1,6 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,react
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,react
 
-#vscode
-.vscode/
+# Created by https://www.toptal.com/developers/gitignore/api/node,react,vscode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,react,vscode
 
 ### Node ###
 # Logs
@@ -143,4 +141,12 @@ psd
 thumb
 sketch
 
-# End of https://www.toptal.com/developers/gitignore/api/node,react
+### vscode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# End of https://www.toptal.com/developers/gitignore/api/node,react,vscode
