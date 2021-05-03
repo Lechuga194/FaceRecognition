@@ -1,0 +1,30 @@
+-- DROP TABLE IF EXISTS users CASCADE;
+-- DROP TABLE IF EXISTS contacts;
+-- CREATE TABLE users (
+--     id SERIAL NOT NULL PRIMARY KEY,
+--     name VARCHAR(100) NOT NULL,
+--     age SMALLINT NOT NULL,
+--     birthday DATE NOT NULL,
+--     isAngry BOOLEAN DEFAULT FALSE
+-- );
+-- CREATE TABLE contacts (
+--     contact_id SERIAL PRIMARY KEY NOT NULL,
+--     user_id INT,
+--     phone VARCHAR(20),
+--     email VARCHAR(100),
+--     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+-- );
+
+-- INSERT INTO users (name, age, birthday)
+-- VALUES ('Eduardo', 23, '19-04-1998'),
+--     ('Sebastian', 21, '07-01-2000');
+
+-- INSERT INTO contacts (user_id, phone, email)
+-- VALUES (1, '5518478021', 'joselechuga194@gmail.com'),
+--     (2, '5514256932', 'kien.io@gmail.com');
+
+-- SELECT * FROM users;
+
+-- SELECT * FROM contacts;
+
+SELECT name, email FROM users JOIN contacts ON users.id = contacts.user_id;

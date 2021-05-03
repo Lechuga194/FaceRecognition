@@ -8,7 +8,8 @@ class Register extends React.Component{
             name: '',
             email: '', 
             password: '',
-            error: false
+            error: false,
+            error_message : ''
         }
     }
 
@@ -36,13 +37,31 @@ class Register extends React.Component{
             })
         }).then(res => res.json())
         .then(user => {
-            console.log(user)
-            if(user){
+            if(user.id){
                 this.props.loadUser(user);
-                this.props.onRouteChange('signin');
+                this.props.onRouteChange('home');
             }
-            else
+            else{
                 this.setState({error : true})
+                let error_message = "";
+                switch(user){
+                    case 'email_error':
+                        error_message = "Invalid Email";
+                        break;
+                    case 'name_error':
+                        error_message = "The name is too short";
+                        break;
+                    case 'password_error':
+                        error_message = "Your password is too short";
+                        break;
+                    case 'duplicate_email_error':
+                        error_message = "The Email is already registered";
+                        break;
+                    default:
+                        error_message = "An unexpected error occurred"
+                }
+                this.setState({error_message : error_message});
+            }
         })
     }
 
@@ -56,7 +75,8 @@ class Register extends React.Component{
                         <div className="mt3">
                             <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
                             <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-                            type="text" name="name"  id="name" onChange={this.onNameChange}/>
+                            type="text" name="name"  id="name" autoFocus
+                            onChange={this.onNameChange}/>
                         </div>
                         <div className="mt3">
                             <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
@@ -78,7 +98,7 @@ class Register extends React.Component{
                     </div>
                     <div>
                         {this.state.error ? 
-                            <p className="error"> Ocurrio un error </p> : <p></p>}
+                            <p className="error"> {this.state.error_message} </p> : <p></p>}
                     </div>
                 </div>
             </main>

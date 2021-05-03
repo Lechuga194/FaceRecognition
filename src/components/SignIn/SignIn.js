@@ -8,7 +8,8 @@ class SignIn extends React.Component{
         this.state = {
             signInEmail : '',
             signInPassword : '',
-            error: false
+            error: false,
+            error_message : ''
         }
     }
 
@@ -35,8 +36,14 @@ class SignIn extends React.Component{
             if(user.id){
                 this.props.loadUser(user);
                 this.props.onRouteChange('home');
+            }else{
+                this.setState({error : true})
+                if(user === 'email_error')
+                    this.setState({error_message : "Invalid Email"});
+                else
+                    this.setState({error_message : "Invalid credentials"})
             }
-        }).catch(this.setState({error:true}))
+        }).catch(this.setState({error:true, error_message:"An unexpected error occurred"}))
     }
     
     render(){
@@ -50,7 +57,7 @@ class SignIn extends React.Component{
                             <div className="mt3">
                                 <label className="db fw6 lh-copy f6" htmlFor="email-address" >Email</label>
                                 <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-                                type="email" name="email-address" id="email-address" 
+                                type="email" name="email-address" id="email-address" autoFocus
                                 onChange={this.onEmailChange}/>
                             </div>
                             <div className="mv3">
@@ -74,7 +81,7 @@ class SignIn extends React.Component{
                         </div>
                         <div>
                             {this.state.error ? 
-                                <p className="error"> Credenciales invalidas </p> : <p></p>}
+                                <p className="error"> {this.state.error_message} </p> : <p></p>}
                         </div>
                     </div>
                 </main>

@@ -1,0 +1,25 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "test",
+            "database": "test",
+            "username": "lechuga194",
+            "socketPath": "/var/run/postgresql"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "facerecognitionapp",
+            "database": "facerecognitionapp",
+            "username": "lechuga194"
+        }
+    ]
+}
