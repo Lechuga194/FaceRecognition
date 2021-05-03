@@ -75,7 +75,7 @@ class App extends Component {
 
   onButtonSubmitDemo = () => {
     this.setState({imageUrl: URL_IMAGE_DEMO});
-    fetch('http://localhost:3000/imageurl', {
+    fetch('https://thefacerecognitionapp.herokuapp.com/imageurl', {
       method: 'POST',
       headers: {
       'Accept': 'application/json',
@@ -88,7 +88,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('http://localhost:3000/imageurl', {
+    fetch('https://thefacerecognitionapp.herokuapp.com/imageurl', {
       method: 'POST',
       headers: {
       'Accept': 'application/json',
@@ -98,7 +98,7 @@ class App extends Component {
     .then(response => {
       //Aumentamos las entries del usuario si hay respuesta 
       if(response){
-        fetch('http://localhost:3000/image', {
+        fetch('https://thefacerecognitionapp.herokuapp.com/image', {
           method: 'PUT',
           headers: {
           'Accept': 'application/json',
