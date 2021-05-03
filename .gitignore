@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,react
 
 #vscode
-.vscode
+.vscode/
 
 ### Node ###
 # Logs
