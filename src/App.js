@@ -78,9 +78,7 @@ class App extends Component {
    */
   wakeDB = () => {
     fetch('https://thefacerecognitionapp.herokuapp.com/wakeDB')
-    .then(console.log)
   }
-  wakeDB();
 
   onButtonSubmitDemo = () => {
     this.setState({imageUrl: URL_IMAGE_DEMO});
@@ -134,6 +132,7 @@ class App extends Component {
     const { imageUrl, route, box, isSignedIn } = this.state;
     return (
       <div className="App">
+        {this.wakeDB()}
         <Particles className='particles'/>
         <div className="navBar">
           <Logo />
