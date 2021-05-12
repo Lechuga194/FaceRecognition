@@ -20,6 +20,7 @@ app.use(cors())
 
 //Bcrypt
 const bcrypt = require('bcrypt');
+const { sign } = require('node:crypto');
 
 //Knex
 const knex = require('knex')({
@@ -40,7 +41,9 @@ app.get('/profile/:id', (req, res) => user.getUserProfile(req, res, knex));
 
 app.put('/image', (req, res) => user.updateUserEntries(req, res, knex));
 
-app.post('/imageurl', (req, res) => API_Clarifai.handleAPICall(req, res))
+app.post('/imageurl', (req, res) => API_Clarifai.handleAPICall(req, res));
+
+app.get('/wakeDB', (req, res) => signin.wakeDB(knex));
 
 app.listen(PORT, () => console.log(`Server Running in port ${PORT}`));
 

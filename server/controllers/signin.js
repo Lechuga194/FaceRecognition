@@ -20,6 +20,11 @@ const handlerSignIn = (req, res, bcrypt, knex) => {
         return res.status(400).json('email_error');
 }
 
+const wakeDB = (knex) => {
+    knex.select('name').from('users').where({email:'dummy@gmail.com'})
+}
+
 module.exports = {
-    handlerSignIn : handlerSignIn
+    handlerSignIn : handlerSignIn,
+    wakeDB: wakeDB
 }

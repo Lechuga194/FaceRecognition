@@ -73,6 +73,15 @@ class App extends Component {
     this.setState({input: event.target.value});
   }
 
+  /**
+   * Funcion para desperar la bd de heroku
+   */
+  wakeDB = () => {
+    fetch('https://thefacerecognitionapp.herokuapp.com/wakeDB')
+    .then(console.log)
+  }
+  wakeDB();
+
   onButtonSubmitDemo = () => {
     this.setState({imageUrl: URL_IMAGE_DEMO});
     fetch('https://thefacerecognitionapp.herokuapp.com/imageurl', {
